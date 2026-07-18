@@ -25,7 +25,7 @@ public void TestPriorityQueue_1()
     [TestMethod]
 // Scenario: Add two items with the same highest priority and then dequeue from an empty queue.
 // Expected Result: The first item added with the highest priority is removed first (FIFO). An InvalidOperationException is thrown when the queue is empty.
-// Defect(s) Found: Equal priorities did not follow FIFO order, and the queue should throw an InvalidOperationException when empty.
+// Defect(s) Found: Items with the same priority did not follow FIFO order because the comparison used '>=' instead of '>'. The dequeued item was also not removed from the queue.
 public void TestPriorityQueue_2()
 {
     var priorityQueue = new PriorityQueue();
